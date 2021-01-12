@@ -7,4 +7,6 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    logger.info(f"received \"{message.content}\" from {message.author.name}")
+    logger.debug(f"received \"{message.content}\" from {message.author.name}")
+
+    await client.process_commands(message)

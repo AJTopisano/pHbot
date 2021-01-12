@@ -1,8 +1,10 @@
+from loguru import logger
 from client import client as client
 
 
 @client.command()
 async def poke(cxt):
+    logger.info(f'Poke back! {round(client.latency * 1000)}ms')
     await cxt.send(f'Poke back! {round(client.latency * 1000)}ms')
 
 
