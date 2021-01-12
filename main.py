@@ -10,7 +10,7 @@ from events.events import *
 
 
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+TOKEN = os.environ('DISCORD_TOKEN')
 
 if __name__ == '__main__':
     logger.info("Starting client")
