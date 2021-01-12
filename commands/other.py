@@ -14,3 +14,8 @@ async def clear(cxt, amount=100):
 @client.command()
 async def nyani(ctx):
     await ctx.send('NYNANIIIIIIIII')
+
+
+@client.command()
+async def help(cxt):
+    await cxt.send(f'Do it yourself')
