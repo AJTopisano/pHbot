@@ -1,6 +1,12 @@
+import os
 import discord
 from discord.ext import commands
 import random
+from dotenv import load_dotenv
+from loguru import logger
+
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
 client = commands.Bot(command_prefix='$', intents=intents)
@@ -8,7 +14,7 @@ client = commands.Bot(command_prefix='$', intents=intents)
 
 @client.event
 async def on_ready():
-    print("PyBot is ready")
+    logger.info("PyBot is ready")
 
 
 @client.command()
@@ -73,5 +79,5 @@ async def unban(cxt, *, member):
 async def nyani(ctx):
     await ctx.send('NYNANIIIIIIIII')
 
-
-client.run('Nzk4MTk5Nzc2MTAwNjE0MTQ1.X_xjeA.WvFezzQBVmEMpu6GifNDf6ZQs-0')
+if __name__ == '__main__':
+    client.run()
