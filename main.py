@@ -11,7 +11,7 @@ from events.messages import on_message
 
 
 load_dotenv()
-TOKEN = os.environ('DISCORD_TOKEN')
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 if __name__ == '__main__':
     logger.info("Starting client")
