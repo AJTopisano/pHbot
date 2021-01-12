@@ -7,6 +7,7 @@ from commands.members import *
 from commands.other import *
 from commands.eight_ball import *
 from events.events import *
+from events.messages import on_message
 
 
 load_dotenv()
