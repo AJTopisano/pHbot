@@ -1,12 +1,8 @@
-import os
 import discord
 from discord.ext import commands
 import random
-from dotenv import load_dotenv
 from loguru import logger
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
 client = commands.Bot(command_prefix='$', intents=intents)
@@ -53,31 +49,6 @@ async def clear(cxt, amount=100):
 
 
 @client.command()
-async def kick(cxt, member: discord.Member, *, reason=None):
-    await member.kick(reason=reason)
-
-
-@client.command()
-async def ban(cxt, member: discord.Member, *, reason=None):
-    await member.ban(reason=reason)
-    await cxt.send(f'Banned {member.mention}')
-
-
-@client.command()
-async def unban(cxt, *, member):
-    banned_users = await cxt.guild.bans()
-    member_name, member_discriminator = member.split('#')
-    for ban_entry in banned_users:
-        user = ban_entry.user
-
-        if (user.name, user.discriminator) == (member_name, member_discriminator):
-            await cxt.guild.unban(user)
-            await cxt.send(f'Unbanned {user.name}#{user.discriminator}')
-
-
-@client.command()
 async def nyani(ctx):
     await ctx.send('NYNANIIIIIIIII')
 
-if __name__ == '__main__':
-    client.run()
