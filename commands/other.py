@@ -18,6 +18,4 @@ async def nyani(ctx):
     await ctx.send('NYNANIIIIIIIII')
 
 
-@client.command()
-async def help(cxt):
-    await cxt.send('Do it yourself')
+
