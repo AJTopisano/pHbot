@@ -2,8 +2,11 @@ import os
 from loguru import logger
 from dotenv import load_dotenv
 
-from pHbot import client as client
+from client import client as client
 from commands.members import *
+from commands.other import *
+from commands.eight_ball import *
+from events.events import *
 
 
 load_dotenv()

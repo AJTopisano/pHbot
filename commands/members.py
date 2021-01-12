@@ -1,7 +1,8 @@
 from loguru import logger
 import discord
 
-from ..pHbot import client as client
+from client import client as client
+
 
 @client.command()
 async def kick(cxt, member: discord.Member, *, reason=None):

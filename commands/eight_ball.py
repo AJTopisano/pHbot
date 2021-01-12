@@ -1,21 +1,7 @@
-import discord
-from discord.ext import commands
-import random
 from loguru import logger
-
-
-intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
-client = commands.Bot(command_prefix='$', intents=intents)
-
-
-@client.event
-async def on_ready():
-    logger.info("PyBot is ready")
-
-
-@client.command()
-async def poke(cxt):
-    await cxt.send(f'Poke back! {round(client.latency * 1000)}ms')
+import discord
+import random
+from client import client as client
 
 
 @client.command(aliases=['8ball'])
@@ -41,14 +27,3 @@ async def _8ball(cxt, *, question):
                  'Yes – definitely.',
                  'You may rely on it.']
     await cxt.send(f'Question: {question}\nAnswer : {random.choice(responses)}')
-
-
-@client.command()
-async def clear(cxt, amount=100):
-    await cxt.channel.purge(limit=amount)
-
-
-@client.command()
-async def nyani(ctx):
-    await ctx.send('NYNANIIIIIIIII')
-
